@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @form.name %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @form.lastname %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @form.height %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @form.weight %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @form.birthday %>
+</p>
+
+<p>
+  <strong>Bmi:</strong>
+  <%= @form.bmi %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @form.gender %>
+</p>
+
+<%= link_to 'Edit', edit_form_path(@form) %> |
+<%= link_to 'Back', forms_path %>

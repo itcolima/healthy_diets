@@ -1,0 +1,67 @@
+<%= form_for(@form) do |f| %>
+  <% if @form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@form.errors.count, "error") %> prohibited this form from being saved:</h2>
+
+      <ul>
+      <% @form.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lastname %><br>
+    <%= f.text_field :lastname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :height %><br>
+    <%= f.text_field :height %>
+  </div>
+
+  <div class="field">
+    <%= f.label :weight %><br>
+    <%= f.text_field :weight %>
+  </div>
+
+  <div class="field">
+    <%= f.label :birthday %><br>
+    <%= f.date_select :birthday, start_year:1920, end_year:1990 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bmi %><br>
+    <%= f.text_field :bmi %>
+  </div>
+
+
+
+
+
+  <div class="field">
+  
+  <%= f.label :gender %><br>
+
+  <%= f.label :gender_male, "Hombre" %>
+  <%= f.radio_button :gender, "Male" %>
+
+  <%= f.label :gender_male, "Mujer" %>
+  <%= f.radio_button :gender, "Female" %>
+ 
+
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

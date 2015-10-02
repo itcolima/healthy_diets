@@ -1,0 +1,50 @@
+
+<html>
+<head>
+
+
+<!-- ========================================================= -->
+
+</div>
+	
+	 	<p>LOREM IPSUM</p>
+		<div class="texto">
+		<% if user_signed_in? %>
+			<h1>Bienvenido</h1><br><%= current_user.email %> 
+				<hr/>			
+			<%= link_to('Obtener Dieta!', new_form_path) %>
+			<hr/>	
+				
+					
+					<%= link_to('Editar Perfil', edit_user_registration_path) %>	
+					<%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+					
+				
+
+		<%else%>
+			<h1>Regístrate</h1>
+			 <%= link_to "Crear una Cuenta", new_user_registration_path%> 
+			<hr/>		
+			<div class="btn-group-xs">	
+			<%= link_to "Iniciar Sesión", new_user_session_path%>
+			<!-- <button type="button" class="btn btn-default"><%= link_to "Crear una Cuenta", new_user_registration_path%> </button> -->
+			</div>
+		<%end%>
+	
+
+</div>
+
+<!-- ========================================================= -->
+	<title></title>
+</head>
+<body>
+	<hr/>
+
+
+
+
+
+
+
+</body>
+</html>
