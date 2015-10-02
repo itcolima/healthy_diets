@@ -2,35 +2,54 @@
 <html>
 <head>
 
+<style>
 
+    .texto{
+        text-align: left;  
+     	color: #828282;
+        }
+
+    .jumbotron{
+        text-align: right;  
+        color: #828282;
+        }
+
+    .ecs{
+          text-align: right;  
+        }
+      
+
+ 
+    </style>
 <!-- ========================================================= -->
 
 </div>
-	
+	<div class="jumbotron" >
 	 	<p>LOREM IPSUM</p>
 		<div class="texto">
 		<% if user_signed_in? %>
 			<h1>Bienvenido</h1><br><%= current_user.email %> 
 				<hr/>			
-			<%= link_to('Obtener Dieta!', new_form_path) %>
+			<div class="well"><%= link_to('Obtener Dieta!', new_form_path) %></div>
 			<hr/>	
-				
-					
-					<%= link_to('Editar Perfil', edit_user_registration_path) %>	
-					<%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
-					
-				
+				<div class="ecs">
+					<div class="btn-group-xs">	
+					<button type="button" class="btn btn-default"><%= link_to('Editar Perfil', edit_user_registration_path) %></button>	
+					<button type="button" class="btn btn-default"><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></button>
+					</div>
+				</div>
+
 
 		<%else%>
 			<h1>Regístrate</h1>
-			 <%= link_to "Crear una Cuenta", new_user_registration_path%> 
+			<p><a class="btn btn-primary btn-sm" role="button"  <%= link_to "Crear una Cuenta", new_user_registration_path%> </a></p>
 			<hr/>		
 			<div class="btn-group-xs">	
-			<%= link_to "Iniciar Sesión", new_user_session_path%>
+			<button type="button" class="btn btn-default"><%= link_to "Iniciar Sesión", new_user_session_path%></button>
 			<!-- <button type="button" class="btn btn-default"><%= link_to "Crear una Cuenta", new_user_registration_path%> </button> -->
 			</div>
 		<%end%>
-	
+	</div>
 
 </div>
 
