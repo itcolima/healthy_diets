@@ -1,55 +1,115 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>HealthyDiets</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'default', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "HEALTHY DIETS" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "default", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 
 
+<style type="text/css">
 
-<style>
-
-      body{
-        width:90%;
-        max-width:1000px;
-        margin:20px auto;  
+      body{ 
         background: #FBFAFA;
 
       }
-      .main{
-          text-align: center;  
-          color:white; 
-          letter-spacing: .2em;
+
+
+      header nav{ 
+        letter-spacing: .2em;
+      }
+
+      header nav{
+        background:#43AC6A;
+        overflow:hidden;
+      }
+
+      header nav ul{
+        list-style:none;
+
+      }
+
+      header nav ul li{
+        float: left;
+      }
+
+
+
+      header nav ul li{
+        padding-top: 20px;
+        padding-right: 20px;
+        display:block;
+        text-decoration:none;
+        
+      }
+
+      .footer {
+        background-color: #292c2f;
+        text-align: center;
+        font-size: 1.2rem;
+        padding: 4rem; 
+
+
+      }
+
+
+      .footer p.copywrite {
+          color: #8f9296;
+          font-size: 0.75rem;
+          margin: 0; 
+
         }
-    </style>
 
-</head>
+
+</style>
+
+  </head>
+
+<!-- ================================= --> 
+
+
 <body>
-
-<p class='notice'><%= notice %> </p>
-<p class='alert'><%= alert %> </p>
-
-
-<!-- ======================================================================  -->
-
-<section class="main">          
-      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <p><h3> HEALTHY DIETS </h3></p>
+  
+    <header >
+      <nav>
+        <ul>
+          <li > <%= link_to 'HOME', root_path ,class:'button success tiny radius' %> </li>
+          <li> <%= link_to 'DIETS', root_path ,class:'button success tiny radius' %> </li>   
+          <li> <%= link_to 'ANOTHER', root_path ,class:'button success tiny radius' %> </li>    
+        </ul>
       </nav>
-</section>
+    </header>
 
-<ul class="nav nav-tabs">
-  <li class="active"><%= link_to 'Home', root_path %></li>
-  <li><a href="#">Profile</a></li>
-  <li><a href="#">Diets</a></li>
-  <li><a href="#">Forum</a></li>
-</ul>
+    <div class="row">
+      <div class="colums large-12"> <br>       
+        <%flash.each do |type, message| %>
+          <div data-alert class="alert-box success radius <%= flass_class type %>">
+            <%= message %>
+            <a href="#" class="close">&times;</a>
+          </div>
+        <% end %>
+            <%= yield %>  
+      </div>
+    </div>
 
-<!-- ======================================================================  -->
 
 
-<%= yield %>
+    
+
+    <footer class="footer">
+      <div class="row">
+        <div class="small-12 columns">
+          <p class="copywrite">HEALTHY DIETS © 2015</p>
+        </div>
+      </div>
+    </footer>
+
+<!-- ================================= -->
 
 </body>
 </html>

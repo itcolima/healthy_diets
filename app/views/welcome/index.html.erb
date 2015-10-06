@@ -2,68 +2,145 @@
 <html>
 <head>
 
-<style>
-
-    .texto{
-        text-align: left;  
-     	color: #828282;
-        }
-
-    .jumbotron{
-        text-align: right;  
-        color: #828282;
-        }
-
-    .ecs{
-          text-align: right;  
-        }
-      
-
- 
-    </style>
-<!-- ========================================================= -->
-
-</div>
-	<div class="jumbotron" >
-	 	<p>LOREM IPSUM</p>
-		<div class="texto">
-		<% if user_signed_in? %>
-			<h1>Bienvenido</h1><br><%= current_user.email %> 
-				<hr/>			
-			<div class="well"><%= link_to('Obtener Dieta!', new_form_path) %></div>
-			<hr/>	
-				<div class="ecs">
-					<div class="btn-group-xs">	
-					<button type="button" class="btn btn-default"><%= link_to('Editar Perfil', edit_user_registration_path) %></button>	
-					<button type="button" class="btn btn-default"><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></button>
-					</div>
-				</div>
-
-
-		<%else%>
-			<h1>Regístrate</h1>
-			<p><a class="btn btn-primary btn-sm" role="button"  <%= link_to "Crear una Cuenta", new_user_registration_path%> </a></p>
-			<hr/>		
-			<div class="btn-group-xs">	
-			<button type="button" class="btn btn-default"><%= link_to "Iniciar Sesión", new_user_session_path%></button>
-			<!-- <button type="button" class="btn btn-default"><%= link_to "Crear una Cuenta", new_user_registration_path%> </button> -->
-			</div>
-		<%end%>
-	</div>
-
-</div>
-
-<!-- ========================================================= -->
 	<title></title>
 </head>
+
+
+<style type="text/css">
+
+.card {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  -webkit-perspective: 5000;
+  perspective: 5000; 
+}
+
+.card .container {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: 0.6s;
+  transition: 0.6s; 
+}
+
+.card .container .front, .card .container .back {
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; 
+}
+
+.card .container .front .row, .card .container .front .column, .card .container .front .columns, .card .container .back .row, .card .container .back .column, .card .container .back .columns {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; 
+}
+
+.card .container .front {
+  z-index: 2; 
+}
+
+.card .container .back {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow-y: scroll;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg); 
+}
+
+.card .container:hover {
+  -webkit-transform: rotate3d(0, 1, 0, 180deg);
+  transform: rotate3d(0, 1, 0, 180deg); 
+}
+
+.card .container {
+  border: solid 1px #eeeeee; 
+}
+
+.card .container .front, .card .container .back {
+  padding: 1em; 
+}
+
+.card.square .container {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%; 
+}
+
+
+</style>
+
+<!-- ========================================================= -->
+
 <body>
-	<hr/>
 
 
+</div >
+<p>LOREM IPSUM</p>
 
+		<% if user_signed_in? %>
+		<div class="panel">  
+		<div class="row">
+		    <div class="large-12 columns">
 
+		    Bienvenido <i><font color="#008CBA"><%= current_user.email %></font></i>!<hr> 	
+	 		<div class="row">
+		        <div class="large-12 columns">
+		          	<img src="images/img3.jpg"><br><br>
+		        </div>
+	     	</div>
 
+			<div class="panel callout radius">
+  			<h5>This is a callout panel.</h5>
+  			<p>It's a little ostentatious, but useful for important content.</p><hr/>	
+  			<%= link_to('Obtener Dieta!', new_form_path) %>		
+			</div>
 
+			<%= link_to('Editar Perfil', edit_user_registration_path, class:'button success tiny radius') %>	
+			<%= link_to "Cerrar Sesión", destroy_user_session_path , class:'button success tiny radius', method: :delete %>	
+
+			</div>
+	     </div>	
+	     </div>	
+
+		<%else%>
+
+		<div class="panel">         
+           <div class="row">
+              <div class="large-12 columns">
+
+<!-- ================================================ -->
+	 	
+			<div class="card">
+			  <div class="container">
+			    <div class="front">
+			      <img src="images/img1.jpg" />
+			    </div>
+
+			    <div class="back">
+			      <h5>HEALTHY DIETS.</h5>
+			      <p>This card shows some content on the front and some on the back, and can be flipped by hovering on a desktop, or by swiping across on a touch device.</p>
+			      <p>The back of the card is intentionally long, so that we can show both an example where the card is constrained to a square and where it is as long as the content on either side requires.</p>
+			      <p>This card shows some content on the front and some on the back, and can be flipped by hovering on a desktop, or by swiping across on a touch device.</p>
+			      <p>The back of the card is intentionally long, so that we can show both an example where the card is constrained to a square and where it is as long as the content on either side requires.</p>
+			    </div>
+			  </div>
+			</div>
+
+<!-- ================================================ -->
+				<h1>Regístrate</h1> 
+				<%= link_to "Crear una Cuenta", new_user_registration_path, class:'button success tiny radius' %> 			
+		    	<%= link_to "Iniciar Sesión", new_user_session_path , class:'button success tiny radius'%>
+
+              </div>
+           </div>
+        </div>   
+      <%end%>   
+</div>
+
+   
 
 </body>
 </html>
+
+

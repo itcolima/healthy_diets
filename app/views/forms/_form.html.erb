@@ -2,7 +2,6 @@
   <% if @form.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@form.errors.count, "error") %> prohibited this form from being saved:</h2>
-
       <ul>
       <% @form.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,6 +9,7 @@
       </ul>
     </div>
   <% end %>
+
 
   <div class="field">
     <%= f.label :name %><br>
@@ -43,23 +43,20 @@
 
 
 
-
-
   <div class="field">
-  
   <%= f.label :gender %><br>
-
   <%= f.label :gender_male, "Hombre" %>
-  <%= f.radio_button :gender, "Male" %>
-
+  <%= f.radio_button :gender, "Male" %><br>
   <%= f.label :gender_male, "Mujer" %>
   <%= f.radio_button :gender, "Female" %>
- 
-
   </div>
 
 
 
+
+
+
+  <hr>
   <div class="actions">
     <%= f.submit %>
   </div>
