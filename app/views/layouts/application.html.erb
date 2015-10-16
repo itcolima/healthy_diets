@@ -14,31 +14,18 @@
 
 <style type="text/css">
 
-      body{ 
-        background: #FBFAFA;
+      body{ background: #FBFAFA;}
 
-      }
-
-
-      header nav{ 
-        letter-spacing: .2em;
-      }
+      header nav{ letter-spacing: .2em;}
 
       header nav{
         background:#43AC6A;
         overflow:hidden;
       }
 
-      header nav ul{
-        list-style:none;
+      header nav ul{list-style:none;}
 
-      }
-
-      header nav ul li{
-        float: left;
-      }
-
-
+      header nav ul li{float: left;}
 
       header nav ul li{
         padding-top: 20px;
@@ -53,8 +40,6 @@
         text-align: center;
         font-size: 1.2rem;
         padding: 4rem; 
-
-
       }
 
 
@@ -62,7 +47,6 @@
           color: #8f9296;
           font-size: 0.75rem;
           margin: 0; 
-
         }
 
 
@@ -84,30 +68,21 @@
         </ul>
       </nav>
     </header>
-
-    <div class="row">
-      <div class="colums large-12"> <br>       
-        <%flash.each do |type, message| %>
-          <div data-alert class="alert-box success radius <%= flass_class type %>">
-            <%= message %>
-            <a href="#" class="close">&times;</a>
-          </div>
-        <% end %>
-            <%= yield %>  
-      </div>
-    </div>
+       
+          
+       
+              <%= yield %>  
 
 
-
-    
-
+              
+   
     <footer class="footer">
       <div class="row">
         <div class="small-12 columns">
           <p class="copywrite">HEALTHY DIETS © 2015</p>
         </div>
       </div>
-    </footer>
+    </footer>    
 
 <!-- ================================= -->
 

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :recipe_diets
+  resources :recipe_ingredients
+  resources :ingredients
+  resources :recipes
+  resources :diets
   resources :forms
   devise_for :users
   resources :users
